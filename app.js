@@ -143,7 +143,10 @@ function html() {
 }
 
 function parse(markup) {
-  feed(markup.replaceAll(/\s+/g, ''))
+  feed(markup
+    .replaceAll(/\s+</g, '<')
+    .replaceAll(/>\s+/g, '>')
+  )
   try {
     html()
     return true
